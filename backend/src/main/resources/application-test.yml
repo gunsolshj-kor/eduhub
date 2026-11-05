@@ -1,0 +1,8 @@
+# 테스트용. 테스트마다 깨끗한 H2 인메모리 DB를 쓴다 (docs/requirements.md D-00)
+spring:
+  datasource:
+    url: jdbc:h2:mem:eduhub-test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  flyway:
+    locations: classpath:db/migration

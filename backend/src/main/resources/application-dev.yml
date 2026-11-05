@@ -1,0 +1,15 @@
+# 로컬 개발용. Docker가 없어 H2 인메모리 DB(PostgreSQL 호환 모드)를 쓴다 (docs/requirements.md D-00)
+# 앱을 끄면 데이터가 사라지고, 켤 때마다 Flyway가 스키마와 개발용 데이터를 다시 만든다
+spring:
+  datasource:
+    url: jdbc:h2:mem:eduhub;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:}
+  flyway:
+    locations: classpath:db/migration,classpath:db/dev-data
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
