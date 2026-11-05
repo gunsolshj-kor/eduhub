@@ -1,0 +1,14 @@
+# 클라우드 PostgreSQL(Neon)용 프로필 (docs/requirements.md D-01)
+# 실행: ./gradlew bootRun --args='--spring.profiles.active=neon'
+# 접속 정보는 저장소 루트의 .env(커밋 금지)나 환경 변수에서 읽는다. 값은 .env.example 참고
+spring:
+  config:
+    import: optional:file:../.env[.properties],optional:file:.env[.properties]
+  datasource:
+    url: ${NEON_DB_URL}
+    username: ${NEON_DB_USERNAME}
+    password: ${NEON_DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 5
+  flyway:
+    locations: classpath:db/migration,classpath:db/dev-data

@@ -39,4 +39,5 @@
 
 ## 결정 사항
 - D-00: 로컬 PC에 Docker가 없어 개발(`dev`)·테스트(`test`) 프로필은 H2 인메모리 DB(PostgreSQL 호환 모드)를 쓴다. Flyway 스크립트는 H2와 PostgreSQL 모두에서 동작하는 문법으로 쓴다. Docker를 쓸 수 있게 되면 `dev`를 PostgreSQL로, 리포지토리 테스트를 Testcontainers로 바꾼다
+- D-01: PostgreSQL 확인용으로 클라우드 PostgreSQL(Neon)을 쓰는 `neon` 프로필을 둔다. 접속 정보는 `.env`의 `NEON_DB_*`로만 넣고, 같은 Flyway 스크립트로 스키마를 만든다
 - (나머지 업무 규칙은 팀이 Claude의 질문에 답하며 채운다. 예: 취소 마감 시간, 대기 인원 한도, 수료 처리 권한)
