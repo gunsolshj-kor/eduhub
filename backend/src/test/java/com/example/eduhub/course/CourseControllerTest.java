@@ -33,6 +33,9 @@ class CourseControllerTest {
     @MockitoBean
     CourseQueryService courseQueryService;
 
+    @MockitoBean
+    CourseService courseService;
+
     @Test
     @DisplayName("검색 조건과 0부터 시작하는 page를 그대로 서비스에 넘기고 PageResponse를 돌려준다")
     void getCourses_withConditions_returnsPage() throws Exception {
